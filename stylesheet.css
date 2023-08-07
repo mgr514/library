@@ -1,7 +1,112 @@
-*{
-    box-sizing: border-box;
+
+:root {
+  --light-blue: #D4F0F0;
+  --teal: #8FCACA;
+  --light-pink: #FEE1E8;
+  --pink: #F3B0C3;
+  --white: #FFF;
+  --black: #000;
 }
 
-body{
+*{
+  box-sizing: border-box;
+}
 
+body {
+  display: flex;
+  background: var(--light-blue);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  position: absolute;
+  top: 0%;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  width: 100%;
+  background: var(--teal);
+}
+
+header h2 {
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+#new-book {
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--light-pink);
+  background: var(--pink);
+  transition: 0.5s ease;
+  position: fixed;
+  bottom: 5%;
+}
+
+.book-container {
+  padding: 1rem;
+  margin-top: 2rem;
+  box-shadow: 5px 5px 35px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 380px;
+  background: #fff;
+}
+
+.book-container h1 {
+  color: var(--teal);
+  text-align: center;
+  background: white;
+  padding: 1rem;
+  margin: -1rem -1rem 1rem -1rem;
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+.book-container input[type="text"],
+select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--pink);
+  background: var(--white);
+  font-size: 1rem;
+}
+
+.book-container input[type="submit"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border: 0;
+  background: #f7f7f7;
+  font-size: 1rem;
+  color: var(--white);
+  background: var(--teal);
+}
+
+.book-container .close{
+  position: absolute;
+  top: 25%;
+  right: 36%;
+  font-size: 2rem;
+  transform: rotate(45deg);
+  color: var(--teal);
+}
+
+.bookshelf{
+  display: flex;
+  flex-direction: row;
+  max-width: 500px;
+  flex-wrap: wrap;
+  border: 1px solid black;
 }
