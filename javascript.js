@@ -2,24 +2,32 @@ const newBook = document.querySelector("#newBook")
 const bookContainer = document.querySelector(".book-container")
 const bookShelf = document.querySelector(".bookshelf")
 
-let books = JSON.parse(localStorage.getItem.("books"))
+let books = JSON.parse(localStorage.getItem("books"))
 
-function Book()
+function Book (title, author, read) {
+  this.id = bookId
+  this.title = title
+  this.author = author
+  this.read = read
+}
+
+Book.prototype.createId
+
 
 function addBook() {
   let bookSection = document.createElement("div")
   book.classList.add("book")
 
   const title = document.createElementById("title")
-  let title = document.createElement("h2")
+  let titleNode= document.createElement("h2")
   title.innerHTML = "Title"
 
   const author = document.createElementById("author")
-  let author = document.createElement("h3")
+  let authorNode = document.createElement("h3")
   author.innerHTML = "Author"
 
   const read = document.createElementbyId("read")
-  let read = document.createElement("h3")
+  let readNode= document.createElement("h3")
   read.innerHTML ="Read"
 
   const book = new Book (title, author, read)
