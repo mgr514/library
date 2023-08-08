@@ -1,6 +1,9 @@
 const newBook = document.querySelector("#newBook")
 const bookContainer = document.querySelector(".book-container")
 const bookShelf = document.querySelector(".bookshelf")
+const form = document.querySelector("#form")
+const popUp = document.querySelector(".popup")
+const closeButton = document.querySelector(".close")
 
 let books = JSON.parse(localStorage.getItem("books"))
 
@@ -39,8 +42,16 @@ function addBook() {
   bookShelf.appendChild(bookSection)
 }
 
-formOpenandClose
+newBook.addEventListener ("click", (e) => {
+ popUp.classList.remove("hidden")
+})
 
-modal window
+closeButton.addEventListener("click", (e) =>{
+  popUp.classList.add("hidden")
+})
 
-newBook
+
+form.addEventListener("submit", (e) =>
+    { e.preventDefault()
+      addBook()
+})

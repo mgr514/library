@@ -100,7 +100,10 @@ select {
   right: 36%;
   font-size: 2rem;
   transform: rotate(45deg);
+  cursor: pointer;
   color: var(--teal);
+  border: none;
+  background-color: inherit;
 }
 
 .bookshelf{
