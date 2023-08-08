@@ -44,15 +44,20 @@ function addBook() {
 
 function formOpenOrClose(){
   if (formOpen) {
-
+formOpen = ''
   } else {
-
+formOpen = ''
   }
 }
 
-newBook.addEventListener ("click", )
+newBook.addEventListener ("click", formOpenOrClose)
 closeButton.addEventListener("click", )
 form.addEventListener("submit", (e) =>
     { e.preventDefault()
       addBook()
 })
+
+
+
+//update function
+//delete function
