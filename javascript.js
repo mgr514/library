@@ -42,15 +42,16 @@ function addBook() {
   bookShelf.appendChild(bookSection)
 }
 
-newBook.addEventListener ("click", (e) => {
- popUp.classList.remove("hidden")
-})
+function formOpenOrClose(){
+  if (formOpen) {
 
-closeButton.addEventListener("click", (e) =>{
-  popUp.classList.add("hidden")
-})
+  } else {
 
+  }
+}
 
+newBook.addEventListener ("click", )
+closeButton.addEventListener("click", )
 form.addEventListener("submit", (e) =>
     { e.preventDefault()
       addBook()
