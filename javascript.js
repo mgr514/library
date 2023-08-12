@@ -12,14 +12,9 @@ const bookRead = document.getElementById("read")
 
 let books = JSON.parse(localStorage.getItem("books")) ?? []
 
-//window.addEventListener("load", () => {
-//  localStorage.setItem("books", JSON.stringify([]))
-//})
-
-// 1. adding a new book through the form should add a new card to the bookshelf with appropriate data from inputs
-// 2. Similarly, this will also append a new book in local storage 'books' array
-// 3. After submitting a book, the user can click the new book button to add another book to their collection
-// Bonus: edit a book from bookshelf by clicking card
+window.addEventListener("load", () => {
+  localStorage.setItem("books", JSON.stringify([]))
+})
 
 const createBook = (title, author, read) =>
 {
@@ -44,14 +39,30 @@ const addBook = () =>
   authorNode.classList.add("book-author")
   authorNode.innerHTML = bookAuthor.value
 
-  let readNode= document.createElement("h3")
+  let readNode = document.createElement("h3")
   readNode.classList.add("book-read")
   readNode.innerHTML = bookRead.value
+
+  let updateNode = document.createElement("button")
+  updateNode.classList.add("update")
+  updateNode.innerHTML = "update"
+  updateNode.addEventListener("click", () =>{
+    new_book.read = !new_book.read 
+    readNode.innerHTML = new_book.read ? "read" : "not read"
+    localStorage.setItem("books", JSON.stringify(books))
+  })
+
+  let deleteNode = document.createElement("button")
+  deleteNode.classList.add("delete-book")
+  deleteNode.innerHTML = "delete"
+  deleteNode.addEventListener("click", () => {
+    deleteBook(new_book)
+  })
 
   const new_book = createBook(
     bookTitle.value,
     bookAuthor.value,
-    bookRead.value
+    bookRead.value,
   )
 
   console.log(new_book)
@@ -63,8 +74,13 @@ const addBook = () =>
   bookCard.appendChild(titleNode)
   bookCard.appendChild(authorNode)
   bookCard.appendChild(readNode)
+  bookCard.appendChild(updateNode)
+  bookCard.appendChild(deleteNode)
   bookShelf.appendChild(bookCard)
 }
+
+
+
 
 
 newBook.addEventListener ("click", () => {

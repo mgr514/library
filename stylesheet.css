@@ -146,7 +146,7 @@ select {
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: var(--light-pink);
+  background: linear-gradient(45deg, var(--pink), var(--light-pink), var(--pink));
   opacity: 0.7;
   color: var(--black);
   border: 3px solid var(--pink);
@@ -156,4 +156,5 @@ select {
   margin: 2rem 1rem;
   text-align: center;
   transition: 0.5s ease;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
