@@ -48,7 +48,7 @@ const addBook = () =>
   updateNode.innerHTML = "update"
   updateNode.addEventListener("click", () =>{
     new_book.read = !new_book.read 
-    readNode.innerHTML = new_book.read ? "read" : "not read"
+    readNode.innerHTML = new_book.read ? "Read" : "Not Read"
     localStorage.setItem("books", JSON.stringify(books))
   })
 
@@ -57,6 +57,10 @@ const addBook = () =>
   deleteNode.innerHTML = "delete"
   deleteNode.addEventListener("click", () => {
     deleteBook(new_book)
+    const deleteBook = (book)=>{
+      localStorage.setItem("books", JSON.stringify(books))
+      bookShelf.removeChild(bookCard)
+    }
   })
 
   const new_book = createBook(
@@ -79,10 +83,6 @@ const addBook = () =>
   bookShelf.appendChild(bookCard)
 }
 
-
-
-
-
 newBook.addEventListener ("click", () => {
   overlay.style.display = "flex"
 })
@@ -102,7 +102,3 @@ window.addEventListener("click", (e) => {
     overlay.style.display = "none"
   }
 })
-
-
-//update function
-//delete function
