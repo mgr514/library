@@ -123,9 +123,11 @@ select {
 .bookshelf{
   display: flex;
   flex-direction: row;
-  max-width: 500px;
   flex-wrap: wrap;
-  border: 1px solid black;
+  justify-content:center;
+  position: absolute;
+  top: 10%;
+  max-width: calc(4* 300px);
 }
 
 .overlay {
@@ -138,4 +140,20 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: var(--light-pink);
+  opacity: 0.7;
+  color: var(--black);
+  border: 3px solid var(--pink);
+  width: 250px;
+  height: 300px;
+  border-radius: 5px;
+  margin: 2rem 1rem;
+  text-align: center;
+  transition: 0.5s ease;
 }
