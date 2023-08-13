@@ -24,6 +24,7 @@ const createBook = (title, author, read) =>
     read
   }
 }
+
 const addBook = () =>
 {
   console. log("addBook() called")
@@ -52,16 +53,17 @@ const addBook = () =>
     localStorage.setItem("books", JSON.stringify(books))
   })
 
-  let deleteNode = document.createElement("button")
-  deleteNode.classList.add("delete-book")
-  deleteNode.innerHTML = "Delete"
-  deleteNode.addEventListener("click", () => {
-    deleteBook(new_book)
-    const deleteBook = (book)=>{
-      localStorage.setItem("books", JSON.stringify(books))
-      bookShelf.removeChild(bookCard)
-    }
-  })
+  const deleteBook = (book)=>{
+    const books = JSON.parse(localStorage.getItem("books"))
+    bookShelf.removeChild(bookCard)
+  }
+  
+    let deleteNode = document.createElement("button")
+    deleteNode.classList.add("delete-book")
+    deleteNode.innerHTML = "Delete"
+    deleteNode.addEventListener("click", () => {
+      deleteBook(new_book)
+      })
 
   const new_book = createBook(
     bookTitle.value,
