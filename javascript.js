@@ -37,24 +37,24 @@ const addBook = () =>
 
   let authorNode = document.createElement("h3")
   authorNode.classList.add("book-author")
-  authorNode.innerHTML = bookAuthor.value
+  authorNode.innerHTML = `Author: ${bookAuthor.value}`
 
   let readNode = document.createElement("h3")
   readNode.classList.add("book-read")
-  readNode.innerHTML = bookRead.value
+  readNode.innerHTML = `Read: ${bookRead.value}`
 
   let updateNode = document.createElement("button")
   updateNode.classList.add("update")
-  updateNode.innerHTML = "update"
+  updateNode.innerHTML = "Update"
   updateNode.addEventListener("click", () =>{
     new_book.read = !new_book.read 
-    readNode.innerHTML = new_book.read ? "Read" : "Not Read"
+    readNode.innerHTML = `Read: ${new_book.read ? "Yes" : "No"}`
     localStorage.setItem("books", JSON.stringify(books))
   })
 
   let deleteNode = document.createElement("button")
   deleteNode.classList.add("delete-book")
-  deleteNode.innerHTML = "delete"
+  deleteNode.innerHTML = "Delete"
   deleteNode.addEventListener("click", () => {
     deleteBook(new_book)
     const deleteBook = (book)=>{
