@@ -16,6 +16,18 @@ window.addEventListener("load", () => {
   localStorage.setItem("books", JSON.stringify([]))
 })
 
+
+// fetches and console logs a random cat fact every time the page loads
+fetch('https://catfact.ninja/fact')
+  .then(
+    res => res.json() // JSON-ify the response into a usable javascript object
+  ).then(
+    res => console.log(res) // if we get a succes response in JSON format, console log it
+  ).catch(
+    (error) => console.log(error) // otherwise, catch and log any errors from the remote resource
+  )
+
+
 const createBook = (title, author, read) =>
 {
   return {
@@ -53,8 +65,8 @@ const addBook = () =>
     localStorage.setItem("books", JSON.stringify(books))
   })
 
-  const deleteBook = (book)=>{
-    const books = JSON.parse(localStorage.getItem("books"))
+  const deleteBook = () => 
+  {
     bookShelf.removeChild(bookCard)
   }
   
