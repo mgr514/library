@@ -58,15 +58,23 @@ const addBook = () =>
 
   let updateNode = document.createElement("button")
   updateNode.classList.add("update")
-  updateNode.innerHTML = "Update"
+  updateNode.innerHTML = "Update Read Status"
   updateNode.addEventListener("click", () =>{
     new_book.read = !new_book.read 
-    readNode.innerHTML = `Read: ${new_book.read ? "Yes" : "No"}`
+    readNode.innerHTML = `Read: ${new_book.read ? "No" : "Yes"}`
+    //editBook = (new_book, bookTitle.value, bookAuthor.value)
     localStorage.setItem("books", JSON.stringify(books))
   })
 
-  const deleteBook = () => 
-  {
+  /*let editNode = document.createElement("button")
+  editNode.classList.add("edit-book")
+  editNode.innerHTML = "Edit"
+  editNode.addEventListeneer("click", () => {
+    editForm(new_book)
+  })*/
+
+  const deleteBook = (book)=>{
+    const books = JSON.parse(localStorage.getItem("books"))
     bookShelf.removeChild(bookCard)
   }
   
@@ -83,6 +91,12 @@ const addBook = () =>
     bookRead.value,
   )
 
+  /*const editBook = (newTitle, newAuthor) => {
+    book.title = newTitle
+    new.author = newAuthor
+    localStorage.setItem("books", JSON.stringify(books))
+  }*/
+
   console.log(new_book)
 
   books.push(new_book)
@@ -93,9 +107,15 @@ const addBook = () =>
   bookCard.appendChild(authorNode)
   bookCard.appendChild(readNode)
   bookCard.appendChild(updateNode)
+  //bookCard.appendChild(editNode)
   bookCard.appendChild(deleteNode)
   bookShelf.appendChild(bookCard)
 }
+/*const editForm = (book) => {
+  bookTitle.value = book.title
+  bookAuthor.value = book.author
+  overlay.style.display = "flex"
+}*/
 
 newBook.addEventListener ("click", () => {
   overlay.style.display = "flex"
@@ -108,6 +128,7 @@ closeButton.addEventListener ("click", () => {
 form.addEventListener("submit", (e) => { 
       e.preventDefault()
       overlay.style.display = "none"
+      //editBook(bookTitle.value, bookAuthor.value)
       addBook()
 })
 
