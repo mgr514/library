@@ -173,7 +173,7 @@ select {
 
 .update:hover,
 .delete-book:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 .book-card h2, h3{
   border: 2px solid var(--white);
